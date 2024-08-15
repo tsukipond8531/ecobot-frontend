@@ -1,6 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 export default function Section1 () {
     return (
@@ -9,9 +7,9 @@ export default function Section1 () {
                 <div className="row">
                     <div className="col col-12 col-lg-6 text-center text-lg-start mt-5">
                         <h1 className="fs-1 fw-bold lh-1 mb-4"><mark data-controller="mark-text" className="u-text-highlight accent active">About us</mark></h1>
-                        <p class="fs-3 fw-normal lh-sm maxw-6 mb-3 mx-auto mx-lg-0">At EcoBots, we believe in harnessing the power of technology to foster a greener, more sustainable future.</p>
+                        <p className="fs-3 fw-normal lh-sm maxw-6 mb-3 mx-auto mx-lg-0">At EcoBots, we believe in harnessing the power of technology to foster a greener, more sustainable future.</p>
                         <div className="w-100 mx-auto mb-6">
-                            <div className="maxw-6 mx-auto d-flex flex-column">
+                            <div className="maxw-6 mx-auto mx-lg-0 d-flex flex-column">
                                 <input type="hidden" name="source_id" value="Home-animation" />
                                 <input type="hidden" name="source_url" value="https://www.ecobots.ai/" />
                                 <input type="hidden" name="source_type" value="website" />
@@ -19,7 +17,7 @@ export default function Section1 () {
                                     <textarea id="demo_question_text" className="v--signup" href="https://chat.ecobots.ai" placeholder="Ask something ecological ..."></textarea>
                                     <button id="demo_question_button" type="submit" className="pointer" href="https://chat.ecobots.ai">
                                         <div id="send-button">
-                                            <FontAwesomeIcon icon={faPaperPlane} />
+                                            <i className="fa-regular fa-paper-plane-top"></i>
                                         </div>
                                     </button>
                                 </div>
@@ -36,7 +34,7 @@ export default function Section1 () {
                         </div>
                     </div>
                     <div className="col col-12 col-lg-6">
-                        
+                        <img src="/assets/images/planting-trees2.jpg" srcSet="/assets/images/planting-trees2.jpg" alt="Brandon Klayman, cc94.com" className="maxw-7 me-5" />
                     </div>
                 </div>
             </div>
