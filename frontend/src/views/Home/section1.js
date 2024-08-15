@@ -1,6 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 export default function Section1 () {
     return (
@@ -21,7 +19,7 @@ export default function Section1 () {
                                         <textarea id="demo_question_text" className="v--signup" href="https://chat.ecobots.ai" placeholder="Ask something ecological ..."></textarea>
                                         <button id="demo_question_button" type="submit" className="pointer" href="https://chat.ecobots.ai">
                                             <div id="send-button">
-                                                <FontAwesomeIcon icon={faPaperPlane} />
+                                            <i className="fa-regular fa-paper-plane-top"></i>
                                             </div>
                                         </button>
                                     </div>
