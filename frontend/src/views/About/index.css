@@ -1,0 +1,36 @@
+select,
+textarea {
+    border: 1px solid #0f0f10;
+    border-radius: .25rem;
+    box-shadow: none;
+    line-height: normal;
+    padding: .75rem;
+    width: 100%
+}
+
+#demo_question_text {
+    height: 58px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: calc(100% - 68px);
+    resize: none;
+    outline: #157f4e;
+    padding: 1rem 0.75rem;
+}
+
+#demo_question_button {
+    height: 58px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 58px;
+    margin: auto;
+    background: #157f4e;
+    border: 0px;
+    border-radius: 0.25rem;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}

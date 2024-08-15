@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: #1b1b20;
+  font-family: Colfax, colfax-web, Proxima Nova, Open Sans, Gill Sans MT, Gill Sans, Corbel, Arial, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.55555556
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Colfax;
+  font-style: normal;
+  font-weight: 400;
+  src: url(/assets/fonts/ColfaxWebRegular.woff) format("woff2"), url(/assets/fonts/ColfaxWebRegular.woff) format("woff")
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Colfax;
+  font-style: italic;
+  font-weight: 400;
+  src: url(/assets/fonts/ColfaxWebRegularItalic.woff) format("woff2"), url(/assets/fonts/ColfaxWebRegularItalic.woff) format("woff")
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Colfax;
+  font-style: normal;
+  font-weight: 700;
+  src: url(/assets/fonts/ColfaxWebBold.woff) format("woff2"), url(/assets/fonts/ColfaxWebBold.woff) format("woff")
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Colfax;
+  font-style: normal;
+  font-weight: 500;
+  src: url(/assets/fonts/ColfaxWebMedium.woff) format("woff2"), url(/assets/fonts/ColfaxWebMedium.woff) format("woff")
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.maxw-1 {
+  max-width: 4rem;
+}
+
+.maxw-2 {
+  max-width: 10rem;
+}
+
+.maxw-3 {
+  max-width: 16rem;
+}
+
+.maxw-4 {
+  max-width: 22rem;
+}
+
+.maxw-5 {
+  max-width: 28rem;
+}
+
+.maxw-6 {
+  max-width: 34rem;
+}
+
+.u-text-highlight {
+  background-color: transparent;
+  background-position: 0 0;
+  background-size: 200% auto;
+  border-radius: .5rem;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  width: -moz-max-content;
+  width: max-content
+}
+
+.u-text-highlight.accent {
+  background-image: linear-gradient(270deg, transparent 50%, #177f4e 0);
+  color: white;
+}
+
+.u-text-highlight.gray-800 {
+  background-image: linear-gradient(270deg, transparent 50%, #d4d4d7 0)
+}
+
+.u-text-highlight.white {
+  background-image: linear-gradient(270deg, transparent 50%, #fff 0)
+}
+
+.u-text-highlight.active {
+  animation-duration: .75s !important;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: text-highlight;
+  animation-timing-function: ease-in-out;
+  transition-duration: .75s
+}
+
