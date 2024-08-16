@@ -3,6 +3,7 @@ import React from 'react';
 import ChatButton from 'components/ChatButton';
 import StopGenerating from './stopgenerating';
 import ModeSelector from './modeselector';
+import UserInput from './userinput';
 
 import './index.css';
 
@@ -32,16 +33,9 @@ export default function Chat () {
                         <StopGenerating />
                         <ModeSelector />
                         <div className="chat-box">
-                            <img src="/assets/logos/logo_1024.png" id="placeholder_img"/>
+                            <img src="/assets/logos/logo_1024.png" alt="Background" id="placeholder_img"/>
                         </div>
-                        <div className="user-input h-auto">
-                            <div className="box input-box">
-                                <textarea id="message-input" placeholder="Ask a question" cols="30" rows="10"></textarea>
-                                <div id="send-button">
-                                    <i className="fa fa-paper-plane-top fa-regular"></i>
-                                </div>
-                            </div>
-                        </div>
+                        <UserInput />
                     </div>
                 </div>
             </div>
