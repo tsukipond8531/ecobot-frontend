@@ -1,18 +1,21 @@
 import React, { lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+
+import Home from 'views/Home';
+import About from 'views/About';
+import Privacy from 'views/Privacy';
+import Tos from 'views/Tos';
+import Chat from 'views/Chat';
+
+import { UserProvider } from 'hooks/contexts/usercontext';
+
 import './App.css';
-
-const Home = lazy(() => import('./views/Home'));
-const About = lazy(() => import('./views/About'));
-const Privacy = lazy(() => import('./views/Privacy'));
-const Tos = lazy(() => import('./views/Tos'));
-const Chat = lazy(() => import('./views/Chat'));
-
 
 function App() {
   return (
     <BrowserRouter>
+      <UserProvider>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -20,6 +23,7 @@ function App() {
           <Route path="/terms-and-services" element={<Tos />} />
           <Route path="/chat" element={<Chat />} />
         </Routes>
+      </UserProvider>
     </BrowserRouter>
   );
 }
