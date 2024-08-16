@@ -3,7 +3,7 @@ import React from 'react';
 import './index.css';
 
 export default function ChatButton (props) {
-    let icon = "fa fa-regular " + (props.icon && props.icon);
+    let icon = `fa ${props?.icon} fa-regular`;
 
     function buttonClicked () {
         props.onClick && props.onClick();
@@ -12,7 +12,7 @@ export default function ChatButton (props) {
     return (
         <button type="button" className="button new_chat_button fs-6" onClick={buttonClicked}>
             <i className={icon}></i>
-            <span className="button_text">{props.title && props.title}</span>
+            <span className="button_text">{props?.title}</span>
         </button>
     )
 }
