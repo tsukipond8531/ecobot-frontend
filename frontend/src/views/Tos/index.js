@@ -38,7 +38,7 @@ export default function Tos () {
                         <p><strong>Third-party Social Media Service</strong> means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.</p>
                     </li>
                     <li>
-                        <p><strong>Website</strong> refers to Ecobot.ai, accessible from <a href="https://ecobots.ai/" rel="external nofollow noopener" target="_blank">https://ecobots.ai/</a></p>
+                        <p><strong>Website</strong> refers to Ecobot.ai, accessible from <a href="https://ecobots.ai/" rel="external nofollow noopener noreferrer" target="_blank">https://ecobots.ai/</a></p>
                     </li>
                     <li>
                         <p><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</p>

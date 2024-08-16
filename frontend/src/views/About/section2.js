@@ -14,7 +14,7 @@ export default function Section2 () {
                     <div className="container">
                         <div className="row">
                             <div className="col col-12 col-lg-6">
-                                <img className="maxw-6" src="/assets/images/icons-01.png" srcSet="/assets/images/icons-01.png" loading="lazy"/>
+                                <img className="maxw-6" src="/assets/images/icons-01.png" srcSet="/assets/images/icons-01.png" alt="Impact" loading="lazy"/>
                             </div>
                             <div className="col col-12 col-lg-6">
                                 <h3 className="fs-1 fw-bold lh-1 my-5">Our <span className="u-text-mark">impact</span></h3>
