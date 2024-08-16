@@ -1,18 +1,34 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import ChatButton from 'components/ChatButton';
 import StopGenerating from './stopgenerating';
 import ModeSelector from './modeselector';
 import UserInput from './userinput';
 
+import UserContext from 'hooks/contexts/usercontext';
+import { CHATMODE_ECOBOTS, CHATMODE_GUIDED, CHATMODE_STANDARD } from 'hooks/contexts/usercontext';
+import { CHATSTATE_INIT } from 'hooks/contexts/usercontext';
+
+import { uuid } from 'utils/utils';
+
 import './index.css';
 
 export default function Chat () {
-    function new_conversation () {
-        console.log("a");
+    const { chatMode, setChatMode, setChatState, setChatId } = useContext(UserContext);
+
+    useEffect(() => {
+        setChatMode(CHATMODE_ECOBOTS);
+        setChatState(CHATSTATE_INIT);
+        setChatId("");
+    }, [])
+
+    async function new_chat_ecobots () {
+        setChatMode(CHATMODE_ECOBOTS);
+        setChatState(CHATSTATE_INIT);
+        setChatId(uuid());
     }
 
-    function new_conversation_guided () {
+    async function new_chat_guided () {
 
     }
 
@@ -22,8 +38,8 @@ export default function Chat () {
                 <div className="col col-12 col-md-3 d-md-block d-none sidebar-container">
                     <div className="sidebar-top">
                         <div className="chat-tool-container">
-                            <ChatButton title="New Empty Conversation" icon="fa-plus-circle" onClick={new_conversation} />
-                            <ChatButton title="New Guided Conversation" icon="fa-plus-hexagon" onClick={new_conversation_guided} />
+                            <ChatButton title="New Empty Conversation" icon="fa-plus-circle" onClick={new_chat_ecobots} />
+                            <ChatButton title="New Guided Conversation" icon="fa-plus-hexagon" onClick={new_chat_guided} />
                         </div>
                         <div className="spinner"></div>
                     </div>
