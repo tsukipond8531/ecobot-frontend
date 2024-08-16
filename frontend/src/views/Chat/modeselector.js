@@ -2,17 +2,22 @@ import React, { useRef, useEffect, useContext } from 'react';
 
 import UserContext from 'hooks/contexts/usercontext';
 import { CHATMODE_ECOBOTS, CHATMODE_GUIDED, CHATMODE_STANDARD } from 'hooks/contexts/usercontext';
+import { CHATSTATE_INIT } from 'hooks/contexts/usercontext';
 
 export default function ModeSelector () {
 
-    const { chatMode, setChatMode } = useContext(UserContext);
+    const { chatMode, setChatMode, setChatState } = useContext(UserContext);
 
     const modeEcobotsRef = useRef();
     const modeGuidedRef = useRef();
     const modeStandardRef = useRef();
 
     const handleChatMode = (mode, ref) => {
-        setChatMode(mode);
+        if (chatMode !== mode) {
+            setChatMode(mode);
+            setChatState(CHATSTATE_INIT)
+        }
+        
         ref.current.focus();
     }
 
@@ -43,7 +48,7 @@ export default function ModeSelector () {
     }, []);
 
     return (
-        <div className="mode-selector-container">
+        <div className="mode-selector-container w-lg-50 w-75">
             <div className="mode-selector">
                 <button 
                     className={`btn btn-success mode-button ${chatMode === CHATMODE_ECOBOTS ? "active" : ""}`} 
