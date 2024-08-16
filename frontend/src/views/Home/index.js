@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
+import Navbar from 'components/Navbar';
+import Footer from 'components/Footer';
 import Section1 from './section1';
 import Section2 from './section2';
 import Section3 from './section3';
