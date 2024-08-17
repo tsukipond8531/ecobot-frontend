@@ -6,12 +6,13 @@ import { apiFetchUUID } from 'hooks/services/userservice';
 
 const UserContext = createContext();
 
-export const CHATMODE_ECOBOTS   = "chatmode_ecobots";
-export const CHATMODE_GUIDED    = "chatmode_guided";
-export const CHATMODE_STANDARD  = "chatmode_standard";
+export const CHATMODE_ECOBOTS       = "chatmode_ecobots";
+export const CHATMODE_GUIDED        = "chatmode_guided";
+export const CHATMODE_STANDARD      = "chatmode_standard";
 
-export const CHATSTATE_INIT     = "chatstate_init";
-export const CHATSTATE_START    = "chatstate_start";
+export const CHATSTATE_INIT         = "chatstate_init";
+export const CHATSTATE_START        = "chatstate_start";
+export const CHATSTATE_GENERATING   = "chatstate_generating";
 
 export const UserProvider = ({children}) => {
     const location = useLocation();
@@ -35,6 +36,11 @@ export const UserProvider = ({children}) => {
         setDeviceUUID();
     }, []);
 
+    const loadChatList = async () => {
+        let chats = [];
+        
+    }
+
     return (
         <UserContext.Provider
             value={{ 
@@ -46,6 +52,7 @@ export const UserProvider = ({children}) => {
                 setChatId,
                 chatList,
                 setChatList,
+                loadChatList,
                 msgList,
                 setMsgList
             }}
