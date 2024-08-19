@@ -21,6 +21,7 @@ export const UserProvider = ({children}) => {
     const [chatId, setChatId] = useState("");
     const [chatList, setChatList] = useState([]);
     const [msgList, setMsgList] = useState([]);
+    const [talkList, setTalkList] = useState([]);
 
     useEffect(() => {
         const setDeviceUUID = async () => {
@@ -38,7 +39,7 @@ export const UserProvider = ({children}) => {
 
     const loadChatList = async () => {
         let chats = [];
-        
+
     }
 
     return (
@@ -54,7 +55,9 @@ export const UserProvider = ({children}) => {
                 setChatList,
                 loadChatList,
                 msgList,
-                setMsgList
+                setMsgList,
+                talkList,
+                setTalkList
             }}
         >
             {children}

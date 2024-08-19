@@ -9,7 +9,7 @@ import UserInput from './userinput';
 
 import UserContext from 'hooks/contexts/usercontext';
 import { CHATMODE_ECOBOTS, CHATMODE_GUIDED, CHATMODE_STANDARD } from 'hooks/contexts/usercontext';
-import { CHATSTATE_INIT } from 'hooks/contexts/usercontext';
+import { CHATSTATE_INIT, CHATSTATE_START } from 'hooks/contexts/usercontext';
 
 import { apiGetGpt } from 'hooks/services/userservice';
 
@@ -27,13 +27,30 @@ var gpt_messages = [
 ];
 
 export default function Chat () {
-    const { chatMode, setChatMode, setChatState, setChatId, chatList, setChatList, loadChatList, setMsgList } = useContext(UserContext);
+    const { chatMode, setChatMode, setChatState, setChatId, chatList, setChatList, loadChatList, msgList, setMsgList, talkList, setTalkList } = useContext(UserContext);
 
     useEffect(() => {
         setChatMode(CHATMODE_ECOBOTS);
         setChatState(CHATSTATE_INIT);
         setChatId("");
     }, [])
+
+    function addMsg (role, content, display="true") {
+        let list = msgList;
+        let message = {role, content, display};
+        list.push(message);
+        return list;
+    }
+
+    function getHistory () {
+        let history = [];
+        msgList.forEach(e => {
+            const item = [e.role, e.content];
+            history.push(item);
+        });
+
+        return JSON.stringify(history);
+    }
 
     async function new_chat_ecobots () {
         setChatMode(CHATMODE_ECOBOTS);
@@ -48,25 +65,43 @@ export default function Chat () {
 
     async function new_chat_guided () {
         setChatMode(CHATMODE_GUIDED);
-        setChatState(CHATSTATE_INIT);
+        setChatState(CHATSTATE_START);
         setChatId(uuid());
 
         const chats = await loadChatList();
         setChatList(chats);
 
-        let msg = gpt_messages[Math.floor(Math.random() * gpt_messages.length)];
-        setMsgList([msg]);
+        let msg = "Start a conversation with me about sth ecological.";
+        let list = addMsg("user", msg, "false");
+        setMsgList(list);
+
+        msg = gpt_messages[Math.floor(Math.random() * gpt_messages.length)];
+        list = addMsg("assistant", msg);
+        setMsgList(list);
 
     }
 
     async function handleQuestionSubmit(question) {
-        let history = JSON.stringify([["user","Hello.\n"],["assistant","Hello! How are you doing today? Is there anything eco-friendly you'd like to talk about or ask me?"]]);
+        let history = getHistory();
+
+        let list = [];
+        list.push({role: "user", content: question, display: "true"});
+        list.push({role: "assistant", content: "", display: "true"});
+        setTalkList(list);
 
         const data = await apiGetGpt({
             mode: chatMode,
             question, 
             history
         })
+
+        list = addMsg("user", question);
+        setMsgList(list);
+
+        list = addMsg("assistant", data.answer);
+        setMsgList(list);
+
+        setTalkList([]);
         console.log(data);
     }
 
@@ -87,7 +122,7 @@ export default function Chat () {
                     <div className="h-100">
                         <StopGenerating />
                         <ModeSelector />
-                        <MessageBox />
+                        <MessageBox items={msgList} talks={talkList} />
                         <UserInput onSubmit={handleQuestionSubmit} />
                     </div>
                 </div>
