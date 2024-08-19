@@ -17,8 +17,8 @@ export default function Section2 () {
                                 <img className="maxw-6" src="/assets/images/icons-01.png" srcSet="/assets/images/icons-01.png" alt="Impact" loading="lazy"/>
                             </div>
                             <div className="col col-12 col-lg-6">
-                                <h3 className="fs-1 fw-bold lh-1 my-5">Our <span className="u-text-mark">impact</span></h3>
-                                <p className="fs-4 fw-normal lh-sm mb-3">Starting this September, we are committed to making a real-world impact. For every ten questions asked through EcoBots, a tree will be planted. This isn’t just a pledge; it's a promise to our users and to the planet. As we embark on this green journey, we invite you to join us. Watch our forest grow, and with it, our shared hope for a revitalized and sustainable future.</p>
+                                <h3 className="u-text-3xl my-5">Our <span className="u-text-mark">impact</span></h3>
+                                <p className="u-text-lg mb-3">Starting this September, we are committed to making a real-world impact. For every ten questions asked through EcoBots, a tree will be planted. This isn’t just a pledge; it's a promise to our users and to the planet. As we embark on this green journey, we invite you to join us. Watch our forest grow, and with it, our shared hope for a revitalized and sustainable future.</p>
                             </div>
                         </div>
                     </div>

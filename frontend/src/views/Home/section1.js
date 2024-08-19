@@ -22,8 +22,8 @@ export default function Section1 () {
                 <div className="row d-flex flex-wrap justify-content-center align-items-start">
                     <div className="col col-12 col-lg-5 mx-auto ms-lg-0 mb-4 mb-lg-0 pt-3 pt-md-4 pt-lg-5">
                         <div className="text-center text-lg-start">
-                            <h2 className="fs-1 fw-bold mb-3">AI for <br/> <span className="u-text-mark">Ecology!</span></h2>
-                            <p className="fs-5 fw-normal lh-sm mb-5">EcoBots is a chatbot offering insights on environmental issues, eco-education, and funding for ecological initiatives.</p>
+                            <h2 className="u-text-4xl mb-3">AI for <br/> <span className="u-text-mark">Ecology!</span></h2>
+                            <p className="u-text-lg mb-5">EcoBots is a chatbot offering insights on environmental issues, eco-education, and funding for ecological initiatives.</p>
                             <div className="w-100 mx-auto mb-6">
                                 <img className="maxw-2" src="assets/images/ask_question.png" srcSet="assets/images/ask_question.png" loading="lazy" alt="Ask Question" />
                                 <div className="maxw-6 mx-auto d-flex flex-column">
@@ -46,7 +46,7 @@ export default function Section1 () {
                                         </button>
                                     </div>
                                 </div>
-                                <p className="mt-2 mb-4 text-center text-lg-start fs-6 fw-normal">
+                                <p className="mt-2 mb-4 text-center text-lg-start u-text-p7">
                                     <span className="d-inline-block me-2 pb-0">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="11" height="8" className="me-2">
                                             <path d="M9.1.3L4 5.4l-2-2c-.3-.3-.7-.4-1-.3S0 3.5 0 4c0 .4 0 .8.3 1l2.8 2.8c.2.2.5.3.8.3s.6-.1.8-.3l6-5.9c.3-.2.4-.6.3-1a1 1 0 0 0-.8-.8c-.4 0-.8 0-1 .3z" fill="currentColor">
@@ -57,7 +57,7 @@ export default function Section1 () {
                                 </p>
                             </div>
                             <div className="w-100 d-flex flex-column flex-lg-row justify-content-start align-items-center">
-                                <p className="fs-2 fw-bold lh-sm text-body-emphasis mb-2 mb-lg-0">
+                                <p className="u-text-xl text-body-emphasis mb-2 mb-lg-0">
                                     Powered by data from:
                                 </p>
                                 <img className="maxw-4 ms-lg-4" src="assets/images/companies.6e0fe351605d1f1344408894defb929e887e3f228037dab0d6f19abb858e9a34.png" srcSet="assets/images/companies_huf5a8460ee35e2e2e56c3937ed66d5d30_5828_360x0_resize_lanczos_3.png 360w, assets/images/companies_huf5a8460ee35e2e2e56c3937ed66d5d30_5828_454x0_resize_lanczos_3.png 454w, assets/images/companies_huf5a8460ee35e2e2e56c3937ed66d5d30_5828_548x0_resize_lanczos_3.png 548w, assets/images/companies_huf5a8460ee35e2e2e56c3937ed66d5d30_5828_642x0_resize_lanczos_3.png 642w, assets/images/companies_huf5a8460ee35e2e2e56c3937ed66d5d30_5828_736x0_resize_lanczos_3.png 736w" alt="Known brands use LiveChat" loading="lazy" />

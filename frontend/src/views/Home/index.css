@@ -126,6 +126,7 @@
 }
 
 .c-faq__entry-question {
+    font-size: inherit;
     cursor: pointer;
     line-height: 1.75rem
 }

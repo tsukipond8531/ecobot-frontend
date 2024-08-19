@@ -20,13 +20,13 @@ export default function Section2 () {
                                 <img className="ms-0 mb-4" src="assets/data_logos/un.png" alt="Grove City College logo" style={{width: 180, height: 50}} loading="lazy"/>
 
                                 <div>
-                                    <blockquote className="fs-4 fw-bold lh-sm mb-3">"In cooperation with the UN, we are part of an initialtive teaching companies and institutions around the world <span className="u-text-highlight accent active">how to use AI &amp; tech</span> for environmental purposes."</blockquote>
+                                    <blockquote className="u-text-xl mb-3">"In cooperation with the UN, we are part of an initialtive teaching companies and institutions around the world <span className="u-text-highlight accent active">how to use AI &amp; tech</span> for environmental purposes."</blockquote>
                                 </div>
                                 <div className="mb-4 mt-2">
                                 </div>
                                 <div className="pt-4 border-top">
                                     <div className="w-50">
-                                        <p className="fs-4 fw-bold lh-sm mb-0">3</p>
+                                        <p className="u-text-lg fw-bold mb-0">3</p>
                                         <p>Different AI models for Ecology</p>
                                     </div>
                                 </div>

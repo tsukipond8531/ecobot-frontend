@@ -6,8 +6,8 @@ export default function Section4 () {
             <div className="container">
                 <div className="row">
                     <div className="col col-12 col-lg-6 mt-5 py-3 py-lg-5 text-center text-lg-start">
-                        <h3 className="fs-1 fw-bold lh-1 mb-3 me-lg-5">Community &amp; Collaboration:</h3>
-                        <p className="fs-4 fw-normal lh-sm mb-3">At EcoBots, we believe that the journey towards ecological balance is not one to be walked alone. Community lies at the heart of every impactful change. Whether you’re a student, a professional, an activist, or someone simply curious about the environment, your voice matters.</p>
+                        <h3 className="u-text-3xl mb-3 me-lg-5">Community &amp; Collaboration:</h3>
+                        <p className="u-text-lg mb-3">At EcoBots, we believe that the journey towards ecological balance is not one to be walked alone. Community lies at the heart of every impactful change. Whether you’re a student, a professional, an activist, or someone simply curious about the environment, your voice matters.</p>
                     </div>
                     <div className="col col-12 col-lg-6 d-relative">
                         <img className="maxw-8" src="/assets/images/image4.jpg" srcSet="/assets/images/image4.jpg" alt="LiveChat Platform" loading="lazy" />

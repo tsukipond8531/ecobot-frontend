@@ -8,10 +8,10 @@ export default function Section3 () {
                     <div className="container">
                         <div className="row d-flex flex-column-reverse flex-lg-row">
                             <div className="col col-12 col-lg-6 text-white">
-                                <p className="fs-3 fw-bold lh-sm my-5 mt-lg-0">
+                                <p className="u-text-p4 my-5 mt-lg-0">
                                     <span className="d-inline-block" style={{marginLeft: "-1rem"}}>“</span>From programming to entrepreneurship, my path has been about impact. Each question to our chatbot is a step towards a greener future. Together, we're making change through technology.
                                 </p>
-                                <p className="fs-5 fw-normal"><strong className="fs-5 fw-semibold">Robin Krambroeckers</strong>,<br/>Founder at EcoBots</p>
+                                <p className="u-text-p6"><strong className="u-text-p6-bold">Robin Krambroeckers</strong>,<br/>Founder at EcoBots</p>
                             </div>
                             <div className="col col-12 col-lg-6 mt-5 mt-lg-0">
                                 <img src="/assets/images/robinkbr.png" srcSet="/assets/images/robinkbr.png" alt="Robin Krambroeckers" className="maxw-5" loading="lazy"/>
