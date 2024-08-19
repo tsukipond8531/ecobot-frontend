@@ -78,6 +78,16 @@
     transition: .1s ease-out;
 }
 
+.user-input #send-button {
+    margin: auto;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 0.25rem;
+    transition: .1s ease-out;
+
+}
+
 .user-input .guided-start {
     background-color: #187f4e;
     color: white;
@@ -120,16 +130,6 @@ textarea::placeholder {
 
 textarea:placeholder-shown {
   border-color: black;
-}
-
-#send-button {
-    margin: auto;
-    color: black;
-    background-color: white;
-    border: none;
-    border-radius: 0.25rem;
-    transition: .1s ease-out;
-
 }
 
 .mode-selector-container {
