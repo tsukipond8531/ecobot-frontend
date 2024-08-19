@@ -53,7 +53,7 @@ app.use(errorHandler.notFound)
 app.use(errorHandler.methodNotAllowed)
 
 // Define routes and middleware
-app.listen((HOST, PORT), () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on ${HOST}:${PORT}`);
 });
 
