@@ -9,7 +9,7 @@ export default class GptService {
             });
             return response.data;
         } catch (error) {
-            //console.error('Error making request:', error);
+            console.error('Error making request:', error);
             return null;
         }
     }
@@ -39,8 +39,6 @@ export default class GptService {
                 messages: messages,
             });
 
-            console.log(`result: ${JSON.stringify(result)}`)
-
             return {
                 results: [{ history: { visible: messages } }],
                 choices: [{ message: { content: result.choices[0].message.content } }]
@@ -51,7 +49,7 @@ export default class GptService {
         }
     }
 
-    static async fetchGptMessage(question, history) {
+    static async fetchGptMessage(mode, question, history) {
         const urls = [
             "https://0kl9g8igye5nlk-5000.proxy.runpod.net/api/v1/chat",
             "https://nbdh0e4au02p54-5000.proxy.runpod.net/api/v1/chat"
@@ -59,6 +57,10 @@ export default class GptService {
 
         history = JSON.parse(history);
         const visibleHistory = history.map(message => [message[0], message[1]]);
+
+        let character = "EcoBots";
+        if (mode === "chatmode_standard")
+            character = "EcoBots Uncensored";
 
         const payload = {
             user_input: question,
@@ -70,7 +72,7 @@ export default class GptService {
                 visible: visibleHistory
             },
             mode: "chat",
-            character: "EcoBots",
+            character: character,
             instruction_template: "Vicuna-v1.1",
             your_name: "",
             _continue: false,

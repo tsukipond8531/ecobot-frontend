@@ -61,7 +61,12 @@ export default function Chat () {
 
     async function handleQuestionSubmit(question) {
         let history = JSON.stringify([["user","Hello.\n"],["assistant","Hello! How are you doing today? Is there anything eco-friendly you'd like to talk about or ask me?"]]);
-        const data = await apiGetGpt({question, history})
+
+        const data = await apiGetGpt({
+            mode: chatMode,
+            question, 
+            history
+        })
         console.log(data);
     }
 
