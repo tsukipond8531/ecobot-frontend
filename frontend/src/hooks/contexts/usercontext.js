@@ -37,9 +37,52 @@ export const UserProvider = ({children}) => {
         setDeviceUUID();
     }, []);
 
-    const loadChatList = async () => {
+    const loadChatList = () => {
         let chats = [];
 
+        for (let i = 0; i < localStorage.length; i++) {
+            if (localStorage.key(i).startsWith("chat:")) {
+                let chat = localStorage.getItem(localStorage.key(i));
+                chats.push(JSON.parse(chat));
+            }
+        }
+
+        setChatList(chats);
+    }
+
+    const addChat = async (chatId, mode, title) => {
+        let key = `chat:${chatId}`;
+        if (localStorage.getItem(key) == null) {
+            let item = {
+                id: chatId,
+                mode: mode,
+                title: title,
+                items: [],
+            }
+            localStorage.setItem(key, JSON.stringify(item));
+        }
+    }
+
+    const getChat = async (chatId) => {
+        let key = `chat:${chatId}`;
+        let chat = localStorage.getItem(key);
+        if (chat != null)
+            return JSON.parse(chat);
+        return null;
+    }
+
+    const deleteChat = async (chatId) => {
+        let key = `chat:${chatId}`;
+        localStorage.removeItem(key);
+    }
+
+    const saveMsg = async (chatId, role, content, display = "true") => {
+        let key = `chat:${chatId}`;
+        let chat = JSON.parse(localStorage.getItem(key));
+
+        chat.items.push({role, content, display});
+
+        localStorage.setItem(key, JSON.stringify(chat));
     }
 
     return (
@@ -53,9 +96,13 @@ export const UserProvider = ({children}) => {
                 setChatId,
                 chatList,
                 setChatList,
+                addChat, 
+                getChat, 
+                deleteChat,
                 loadChatList,
                 msgList,
                 setMsgList,
+                saveMsg, 
                 talkList,
                 setTalkList
             }}

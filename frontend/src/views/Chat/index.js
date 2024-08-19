@@ -32,12 +32,15 @@ export default function Chat () {
         chatMode, 
         setChatMode, 
         setChatState, 
+        chatId,
         setChatId, 
         chatList, 
         setChatList, 
+        addChat, 
         loadChatList, 
         msgList, 
         setMsgList, 
+        saveMsg, 
         talkList, 
         setTalkList 
     } = useContext(UserContext);
@@ -46,6 +49,9 @@ export default function Chat () {
         setChatMode(CHATMODE_ECOBOTS);
         setChatState(CHATSTATE_INIT);
         setChatId("");
+
+        loadChatList();
+        setMsgList([]);
     }, [])
 
     function addMsg (role, content, display="true") {
@@ -65,12 +71,13 @@ export default function Chat () {
         return JSON.stringify(history);
     }
 
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
     async function new_chat_ecobots () {
         setChatState(CHATSTATE_INIT);
         setChatId(uuid());
 
-        const chats = await loadChatList();
-        setChatList(chats);
+        loadChatList();
         
         setMsgList([]);
     }
@@ -80,8 +87,7 @@ export default function Chat () {
         setChatState(CHATSTATE_START);
         setChatId(uuid());
 
-        const chats = await loadChatList();
-        setChatList(chats);
+        loadChatList();
 
         let msg = "Start a conversation with me about sth ecological.";
         let list = addMsg("user", msg, "false");
@@ -101,6 +107,9 @@ export default function Chat () {
         list.push({role: "assistant", content: "", display: "loading"});
         setTalkList(list);
 
+        addChat(chatId, chatMode, question.substr(0, 20));
+        loadChatList();
+
         const req = apiGetGpt({
             mode: chatMode,
             question, 
@@ -112,13 +121,17 @@ export default function Chat () {
         req.then(data => {
 
             list = addMsg("user", question);
+            saveMsg(chatId, "user", question);
             setMsgList(list);
     
             list = addMsg("assistant", data.answer);
+            saveMsg(chatId, "assistant", data.answer);
             setMsgList(list);
     
             setTalkList([]);
             setChatState(CHATSTATE_START);
+
+
         })
 
     }
@@ -136,7 +149,7 @@ export default function Chat () {
                         <div className="spinner"></div>
                     </div>
                 </div>
-                <div className="col col-12 col-md-9 chat-box-container">
+                <div className="col col-12 col-md-9 message-box-container">
                     <div className="h-100">
                         <StopGenerating />
                         <ModeSelector />
