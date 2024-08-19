@@ -39,11 +39,11 @@ export default class GptService {
                 messages: messages,
             });
 
-            console.log(`result: ${result}`)
+            console.log(`result: ${JSON.stringify(result)}`)
 
             return {
                 results: [{ history: { visible: messages } }],
-                choices: [{ message: { content: result.data.choices[0].message.content } }]
+                choices: [{ message: { content: result.choices[0].message.content } }]
             };
         } catch (error) {
             console.error('Error with OpenAI API:', error);

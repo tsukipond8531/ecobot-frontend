@@ -16,7 +16,7 @@ export const fetchUUID = async (req, res, next) => {
 export const fetchGptMessage = async (req, res, next) => {
     try {
         const { question, history } = req.query;
-        const answer = GptService.fetchGptMessage(question, history);
+        const answer = await GptService.fetchGptMessage(question, history);
   
         res.json({answer})
     } catch (err) {
