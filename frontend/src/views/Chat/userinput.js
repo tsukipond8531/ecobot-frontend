@@ -50,7 +50,7 @@ export default function UserInput (props) {
 
     return (
         <>
-            <div className={`user-input h-auto ${chatMode !== CHATMODE_GUIDED ? "" : "d-none"}`}> 
+            <div className={`user-input h-auto ${(chatMode !== CHATMODE_GUIDED || chatState !== CHATSTATE_INIT) ? "" : "d-none"}`}> 
                 <form onSubmit={e => e.preventDefault()} >
                     <div className="box input-box">
                         <textarea 
