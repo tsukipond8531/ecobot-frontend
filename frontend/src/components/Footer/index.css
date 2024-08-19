@@ -11,8 +11,13 @@
     }
 }
 
-.privacyLinks{
+.privacyLinks {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.privacyLinks a {
+    font-size: .75rem;
+    font-weight: 500;
 }

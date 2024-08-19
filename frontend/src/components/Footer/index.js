@@ -32,8 +32,8 @@ export default function Footer () {
                         <p className="fs-6 fw-normal lh-sm mb-2 mb-lg-0 pb-0 text-reset">Copyright &copy; 2024 EcoBots, Inc. All rights reserved.</p>
                         
                         <div className="privacyLinks">
-                            <a className="text-decoration-none fs-6 fw-normal lh-sm mb-0 pb-0 fw-bold text-reset me-1" href="/privacy-policy/">Privacy Policy</a>
-                            <a className="text-decoration-none fs-6 fw-normal lh-sm mb-0 pb-0 fw-bold text-reset me-1" href="/terms-and-services/">Terms of Services</a>
+                            <a className="text-decoration-none fs-6 lh-sm mb-0 pb-0 text-reset me-1" href="/privacy-policy/">Privacy Policy</a>
+                            <a className="text-decoration-none fs-6 lh-sm mb-0 pb-0 text-reset me-1" href="/terms-and-services/">Terms of Services</a>
                         </div>
                     </div>
             </div>

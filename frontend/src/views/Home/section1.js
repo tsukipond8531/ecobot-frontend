@@ -60,7 +60,7 @@ export default function Section1 () {
                                 <p className="fs-2 fw-bold lh-sm text-body-emphasis mb-2 mb-lg-0">
                                     Powered by data from:
                                 </p>
-                                <img className="maxw-4 ms-lg-4" src="assets/images/companies.6e0fe351605d1f1344408894defb929e887e3f228037dab0d6f19abb858e9a34.png" srcSet="assets/images/companies_huf5a8460ee35e2e2e56c3937ed66d5d30_5828_360x0_resize_lanczos_3.png 360w, assets/images/companies_huf5a8460ee35e2e2e56c3937ed66d5d30_5828_454x0_resize_lanczos_3.png 454w, assets/images/companies_huf5a8460ee35e2e2e56c3937ed66d5d30_5828_548x0_resize_lanczos_3.png 548w, assets/images/companies_huf5a8460ee35e2e2e56c3937ed66d5d30_5828_642x0_resize_lanczos_3.png 642w, assets/images/companies_huf5a8460ee35e2e2e56c3937ed66d5d30_5828_736x0_resize_lanczos_3.png 736w" alt="Known brands use LiveChat" style={{width: 352, height: 34}} loading="lazy" />
+                                <img className="maxw-4 ms-lg-4" src="assets/images/companies.6e0fe351605d1f1344408894defb929e887e3f228037dab0d6f19abb858e9a34.png" srcSet="assets/images/companies_huf5a8460ee35e2e2e56c3937ed66d5d30_5828_360x0_resize_lanczos_3.png 360w, assets/images/companies_huf5a8460ee35e2e2e56c3937ed66d5d30_5828_454x0_resize_lanczos_3.png 454w, assets/images/companies_huf5a8460ee35e2e2e56c3937ed66d5d30_5828_548x0_resize_lanczos_3.png 548w, assets/images/companies_huf5a8460ee35e2e2e56c3937ed66d5d30_5828_642x0_resize_lanczos_3.png 642w, assets/images/companies_huf5a8460ee35e2e2e56c3937ed66d5d30_5828_736x0_resize_lanczos_3.png 736w" alt="Known brands use LiveChat" loading="lazy" />
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@ export default function Section1 () {
                         <div className="d-relative d-none d-md-block" style={{maxHeight: 640}}>
                             <video preload="none" loop playsInline autoPlay muted src="assets/videos/ecobots.mp4" style={{width: "100%", aspectRatio: 736/640}} title="" data-lazyplay-target="video" poster="/assets/images/ecobots.jpg" ></video>
                         </div>
-                        <img className="d-block d-md-none maxw-6 mx-auto" src="assets/images/ecobots.jpg" srcSet="assets/images/ecobots.jpg" alt="Live chat app view" style={{width: 445, height: 445}} loading="lazy"></img>
+                        <img className="d-block d-md-none maxw-6 mx-auto" src="assets/images/ecobots.jpg" srcSet="assets/images/ecobots.jpg" alt="Live chat app view" loading="lazy"></img>
                     </div>
                 </div>
             </div>
