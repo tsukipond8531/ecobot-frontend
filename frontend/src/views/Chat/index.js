@@ -16,6 +16,7 @@ import { apiGetGpt } from 'hooks/services/userservice';
 import { uuid } from 'utils/utils';
 
 import './index.css';
+import { CHATSTATE_GENERATING } from 'hooks/contexts/usercontext';
 
 var gpt_messages = [
     "Hello, what is something ecological you always wanted to do, but were never able to do?", 
@@ -53,7 +54,6 @@ export default function Chat () {
     }
 
     async function new_chat_ecobots () {
-        setChatMode(CHATMODE_ECOBOTS);
         setChatState(CHATSTATE_INIT);
         setChatId(uuid());
 
@@ -89,20 +89,26 @@ export default function Chat () {
         list.push({role: "assistant", content: "", display: "true"});
         setTalkList(list);
 
-        const data = await apiGetGpt({
+        const req = apiGetGpt({
             mode: chatMode,
             question, 
             history
         })
 
-        list = addMsg("user", question);
-        setMsgList(list);
+        setChatState(CHATSTATE_GENERATING);
 
-        list = addMsg("assistant", data.answer);
-        setMsgList(list);
+        req.then(data => {
 
-        setTalkList([]);
-        console.log(data);
+            list = addMsg("user", question);
+            setMsgList(list);
+    
+            list = addMsg("assistant", data.answer);
+            setMsgList(list);
+    
+            setTalkList([]);
+            setChatState(CHATSTATE_START);
+        })
+
     }
 
     return (
