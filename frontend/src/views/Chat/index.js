@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 
 import ChatButton from 'components/ChatButton';
 import ChatBox from './chatbox';
+import MessageBox from './messagebox';
 import StopGenerating from './stopgenerating';
 import ModeSelector from './modeselector';
 import UserInput from './userinput';
@@ -10,9 +11,20 @@ import UserContext from 'hooks/contexts/usercontext';
 import { CHATMODE_ECOBOTS, CHATMODE_GUIDED, CHATMODE_STANDARD } from 'hooks/contexts/usercontext';
 import { CHATSTATE_INIT } from 'hooks/contexts/usercontext';
 
+import { apiGetGpt } from 'hooks/services/userservice';
+
 import { uuid } from 'utils/utils';
 
 import './index.css';
+
+var gpt_messages = [
+    "Hello, what is something ecological you always wanted to do, but were never able to do?", 
+    "Hello, what are some small, daily changes people can make to contribute to a healthier planet?", 
+    "Hello, how do you feel about the current state of the environment?", 
+    "Hello, which sustainable innovations or technologies do you find most promising for the future?", 
+    "Hello, how do you envision a sustainable future for our planet?", 
+    "Hello, do you think technology can be a solution to some of our biggest environmental issues?"
+];
 
 export default function Chat () {
     const { chatMode, setChatMode, setChatState, setChatId, chatList, setChatList, loadChatList, setMsgList } = useContext(UserContext);
@@ -28,14 +40,29 @@ export default function Chat () {
         setChatState(CHATSTATE_INIT);
         setChatId(uuid());
 
+        const chats = await loadChatList();
+        setChatList(chats);
+        
         setMsgList([]);
-        setChatList([]);
-
-        await loadChatList();
     }
 
     async function new_chat_guided () {
+        setChatMode(CHATMODE_GUIDED);
+        setChatState(CHATSTATE_INIT);
+        setChatId(uuid());
 
+        const chats = await loadChatList();
+        setChatList(chats);
+
+        let msg = gpt_messages[Math.floor(Math.random() * gpt_messages.length)];
+        setMsgList([msg]);
+
+    }
+
+    async function handleQuestionSubmit(question) {
+        let history = JSON.stringify(["Hello"]);
+        const data = await apiGetGpt({question, history})
+        console.log(data);
     }
 
     return (
@@ -55,10 +82,8 @@ export default function Chat () {
                     <div className="h-100">
                         <StopGenerating />
                         <ModeSelector />
-                        <div className="chat-box">
-                            <img src="/assets/logos/logo_1024.png" alt="Background" id="placeholder_img"/>
-                        </div>
-                        <UserInput />
+                        <MessageBox />
+                        <UserInput onSubmit={handleQuestionSubmit} />
                     </div>
                 </div>
             </div>

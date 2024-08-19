@@ -112,10 +112,11 @@ textarea:placeholder-shown {
 #send-button {
     margin: auto;
     color: black;
-    padding: 5px 10px;
+    background-color: white;
+    border: none;
     border-radius: 0.25rem;
-    line-height: 0;
     transition: .1s ease-out;
+
 }
 
 .mode-selector-container {

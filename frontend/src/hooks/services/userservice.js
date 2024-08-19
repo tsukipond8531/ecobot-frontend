@@ -8,3 +8,12 @@ export const apiFetchUUID = async (query) => {
 
     return data;
 }
+
+export const apiGetGpt = async (query) => {
+    const data = await api({
+        url: `/gpt_message`,
+        query
+    });
+
+    return data;
+}
