@@ -6,7 +6,7 @@ import { CHATSTATE_INIT } from 'hooks/contexts/usercontext';
 
 export default function ModeSelector () {
 
-    const { chatMode, setChatMode, setChatState } = useContext(UserContext);
+    const { chatMode, setChatMode, chatState, setChatState } = useContext(UserContext);
 
     const modeEcobotsRef = useRef();
     const modeGuidedRef = useRef();
@@ -48,7 +48,7 @@ export default function ModeSelector () {
     }, []);
 
     return (
-        <div className="mode-selector-container w-lg-50 w-75">
+        <div className={`mode-selector-container w-lg-50 w-75 ${chatState !== CHATSTATE_INIT ? "d-none" : ""}`}>
             <div className="mode-selector">
                 <button 
                     className={`btn btn-success mode-button ${chatMode === CHATMODE_ECOBOTS ? "active" : ""}`} 
