@@ -1,14 +1,22 @@
-function generateUUID() {
-    return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
-        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-    );
-}
+import ChatService from "../services/chatservice";
+import GptService from "../services/gptservice";
 
 export const fetchUUID = async (req, res, next) => {
     try {
-        const uuid = generateUUID();
+        const uuid = ChatService.fetchUUID();
   
         res.json({ uuid })
+    } catch (err) {
+        next(err)
+    }
+}
+
+export const fetchGptMessage = async (req, res, next) => {
+    try {
+        const { question, history } = req.query;
+        const answer = GptService.fetchGptMessage(question, history);
+  
+        res.json({answer})
     } catch (err) {
         next(err)
     }
