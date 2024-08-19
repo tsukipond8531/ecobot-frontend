@@ -1,5 +1,4 @@
 import React, { useState, useEffect, createContext } from 'react';
-import { useLocation }  from 'react-router-dom';
 import Cookies from 'universal-cookie';
 
 import { apiFetchUUID } from 'hooks/services/userservice';
@@ -15,7 +14,6 @@ export const CHATSTATE_START        = "chatstate_start";
 export const CHATSTATE_GENERATING   = "chatstate_generating";
 
 export const UserProvider = ({children}) => {
-    const location = useLocation();
     const [chatMode, setChatMode] = useState("");
     const [chatState, setChatState] = useState("");
     const [chatId, setChatId] = useState("");

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import ChatButton from 'components/ChatButton';
@@ -45,6 +45,8 @@ export default function Chat () {
         setTalkList 
     } = useContext(UserContext);
 
+    const [reqMessage, setReqMessage] = useState("");
+
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const message = queryParams.get("message");
@@ -58,7 +60,7 @@ export default function Chat () {
             loadChatList();
             
             setMsgList([]);
-            handleQuestionSubmit(message);
+            setReqMessage(message);
         } else {
             setChatMode(CHATMODE_ECOBOTS);
             setChatState(CHATSTATE_INIT);
@@ -66,9 +68,13 @@ export default function Chat () {
     
             loadChatList();
             setMsgList([]);
+            setReqMessage("");
         }
-
     }, [])
+
+    useEffect(() => {
+        handleQuestionSubmit(reqMessage);
+    }, [reqMessage])
 
     function addMsg (role, content, display="true") {
         let list = msgList;
@@ -117,6 +123,9 @@ export default function Chat () {
     }
 
     async function handleQuestionSubmit(question) {
+        if (chatId === "" || question === "")
+            return;
+
         let history = getHistory();
 
         let list = [];
@@ -135,19 +144,19 @@ export default function Chat () {
 
         setChatState(CHATSTATE_GENERATING);
 
-        req.then(data => {
+        req.then(res => {
 
             list = addMsg("user", question);
             saveMsg(chatId, "user", question);
             setMsgList(list);
     
-            list = addMsg("assistant", data.answer);
-            saveMsg(chatId, "assistant", data.answer);
+            list = addMsg("assistant", res.answer);
+            saveMsg(chatId, "assistant", res.answer);
             setMsgList(list);
     
             setTalkList([]);
             setChatState(CHATSTATE_START);
-        })
+        });
 
     }
 
