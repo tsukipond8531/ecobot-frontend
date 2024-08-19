@@ -35,7 +35,6 @@ export default function Chat () {
         chatId,
         setChatId, 
         chatList, 
-        setChatList, 
         addChat, 
         loadChatList, 
         msgList, 
@@ -88,13 +87,14 @@ export default function Chat () {
         setChatId(uuid());
 
         loadChatList();
+        
+        let list = [];
 
         let msg = "Start a conversation with me about sth ecological.";
-        let list = addMsg("user", msg, "false");
-        setMsgList(list);
+        list.push({role: "user", content: msg, display: "false"});
 
         msg = gpt_messages[Math.floor(Math.random() * gpt_messages.length)];
-        list = addMsg("assistant", msg);
+        list.push({role: "assistant", content: msg, display: "true"});
         setMsgList(list);
 
     }
@@ -130,8 +130,6 @@ export default function Chat () {
     
             setTalkList([]);
             setChatState(CHATSTATE_START);
-
-
         })
 
     }
@@ -154,7 +152,7 @@ export default function Chat () {
                         <StopGenerating />
                         <ModeSelector />
                         <MessageBox items={msgList} talks={talkList} />
-                        <UserInput onSubmit={handleQuestionSubmit} />
+                        <UserInput onSubmit={handleQuestionSubmit} onGuidedStart={new_chat_guided} />
                     </div>
                 </div>
             </div>

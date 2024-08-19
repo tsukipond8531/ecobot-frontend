@@ -78,6 +78,19 @@
     transition: .1s ease-out;
 }
 
+.user-input .guided-start {
+    background-color: #187f4e;
+    color: white;
+    border: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    margin: auto;
+    border-radius: 0.25rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .input-box {
     display: flex;
     height: 100%;
