@@ -19,6 +19,7 @@ export default function MsgItem (props) {
             </div>
             <div className="content" dangerouslySetInnerHTML={{ __html: md.render(message.content) }} >
             </div>
+            {message.display === "loading" && (<div className="loading"></div>)}
         </div>
     )
 }

@@ -8,7 +8,7 @@ import ModeSelector from './modeselector';
 import UserInput from './userinput';
 
 import UserContext from 'hooks/contexts/usercontext';
-import { CHATMODE_ECOBOTS, CHATMODE_GUIDED, CHATMODE_STANDARD } from 'hooks/contexts/usercontext';
+import { CHATMODE_ECOBOTS, CHATMODE_GUIDED } from 'hooks/contexts/usercontext';
 import { CHATSTATE_INIT, CHATSTATE_START } from 'hooks/contexts/usercontext';
 
 import { apiGetGpt } from 'hooks/services/userservice';
@@ -28,7 +28,19 @@ var gpt_messages = [
 ];
 
 export default function Chat () {
-    const { chatMode, setChatMode, setChatState, setChatId, chatList, setChatList, loadChatList, msgList, setMsgList, talkList, setTalkList } = useContext(UserContext);
+    const { 
+        chatMode, 
+        setChatMode, 
+        setChatState, 
+        setChatId, 
+        chatList, 
+        setChatList, 
+        loadChatList, 
+        msgList, 
+        setMsgList, 
+        talkList, 
+        setTalkList 
+    } = useContext(UserContext);
 
     useEffect(() => {
         setChatMode(CHATMODE_ECOBOTS);
@@ -86,7 +98,7 @@ export default function Chat () {
 
         let list = [];
         list.push({role: "user", content: question, display: "true"});
-        list.push({role: "assistant", content: "", display: "true"});
+        list.push({role: "assistant", content: "", display: "loading"});
         setTalkList(list);
 
         const req = apiGetGpt({
