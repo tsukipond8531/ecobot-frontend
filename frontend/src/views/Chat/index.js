@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import ChatButton from 'components/ChatButton';
 import ChatBox from './chatbox';
@@ -44,13 +45,29 @@ export default function Chat () {
         setTalkList 
     } = useContext(UserContext);
 
-    useEffect(() => {
-        setChatMode(CHATMODE_ECOBOTS);
-        setChatState(CHATSTATE_INIT);
-        setChatId("");
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const message = queryParams.get("message");
 
-        loadChatList();
-        setMsgList([]);
+    useEffect(() => {
+        if (message) {
+            setChatMode(CHATMODE_ECOBOTS);
+            setChatState(CHATSTATE_START);
+            setChatId(uuid());
+    
+            loadChatList();
+            
+            setMsgList([]);
+            handleQuestionSubmit(message);
+        } else {
+            setChatMode(CHATMODE_ECOBOTS);
+            setChatState(CHATSTATE_INIT);
+            setChatId("");
+    
+            loadChatList();
+            setMsgList([]);
+        }
+
     }, [])
 
     function addMsg (role, content, display="true") {

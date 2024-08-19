@@ -1,6 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Section1 () {
+    const [message, setMessage] = useState("");
+
+    const handleSendClick = () => {
+        const encodedMessage = encodeURIComponent(message);
+        window.location.href = `/chat?message=${encodedMessage}`;
+    };
+
+    const handleKeyDown = (evt) => {
+        if (evt.key === 'Enter' && !evt.shiftKey) {
+            evt.preventDefault();
+            const encodedMessage = encodeURIComponent(message);
+            window.location.href = `/chat?message=${encodedMessage}`;
+        }
+    };
+
     return (
         <section className="mb-5 mb-md-2 pt-3 pt-md-2 pt-lg-5 d-relative">
             <div className="container d-relative">
@@ -14,8 +29,15 @@ export default function Section1 () {
                                 <input type="hidden" name="source_url" value="https://www.ecobots.ai/" />
                                 <input type="hidden" name="source_type" value="website" />
                                 <div className="d-flex m-auto w-100">
-                                    <textarea id="demo_question_text" className="v--signup" href="https://chat.ecobots.ai" placeholder="Ask something ecological ..."></textarea>
-                                    <button id="demo_question_button" type="submit" className="pointer" href="https://chat.ecobots.ai">
+                                    <textarea 
+                                        id="demo_question_text" 
+                                        className="v--signup" 
+                                        placeholder="Ask something ecological ..."
+                                        value={message}
+                                        onChange={e => setMessage(e.target.value)}
+                                        onKeyDown={handleKeyDown}
+                                    ></textarea>
+                                    <button id="demo_question_button" type="submit" className="pointer" onClick={handleSendClick}>
                                         <div id="send-button">
                                             <i className="fa-regular fa-paper-plane-top"></i>
                                         </div>
