@@ -3,7 +3,9 @@ import GptService from "../services/gptservice";
 
 export const fetchUUID = async (req, res, next) => {
     try {
-        const uuid = ChatService.fetchUUID();
+        const uuid = await ChatService.fetchUUID();
+
+        console.log("uuid: ", uuid);
   
         res.json({ uuid })
     } catch (err) {
