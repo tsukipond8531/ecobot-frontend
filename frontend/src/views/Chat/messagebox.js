@@ -14,7 +14,7 @@ export default function MessageBox (props) {
     }, [items, talks]);
 
     return (
-        <div className="chat-box" ref={chatBoxRef}>
+        <div className="message-box" ref={chatBoxRef}>
             <img src="/assets/logos/logo_1024.png" alt="Background" id="placeholder_img"/>
             {items?.length > 0 && items.map((it, idx) => (
                 <MsgItem message={it} key={idx} />

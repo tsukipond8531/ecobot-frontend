@@ -17,9 +17,11 @@ export default function MsgItem (props) {
             <div className="role">
                 <img src={image} alt="Avatar"></img>
             </div>
-            <div className="content" dangerouslySetInnerHTML={{ __html: md.render(message.content) }} >
+            <div className={`content ${message.display === "loading" ? "d-none" : ""}`} dangerouslySetInnerHTML={{ __html: md.render(message.content) }} >
             </div>
-            {message.display === "loading" && (<div className="loading"></div>)}
+            <div className="content">
+                {message.display === "loading" && (<div className="loading"></div>)}
+            </div>
         </div>
     )
 }
