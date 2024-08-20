@@ -28,6 +28,8 @@ export default function ChatBox (props) {
         setChatMode(chat.mode);
         setChatState(CHATSTATE_START);
         setMsgList(chat.items);
+
+        props.itemActivated && props.itemActivated();
     }
 
     const itemDeleted = (chatId) => {

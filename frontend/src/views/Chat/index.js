@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
+import ChatNavbar from './navbar';
 import ChatButton from 'components/ChatButton';
 import ChatBox from './chatbox';
 import MessageBox from './messagebox';
@@ -64,7 +65,7 @@ export default function Chat () {
         } else {
             setChatMode(CHATMODE_ECOBOTS);
             setChatState(CHATSTATE_INIT);
-            setChatId("");
+            setChatId(uuid());
     
             loadChatList();
             setMsgList([]);
@@ -157,11 +158,11 @@ export default function Chat () {
             setTalkList([]);
             setChatState(CHATSTATE_START);
         });
-
     }
 
     return (
         <div className="container-fluid">
+            <ChatNavbar chats={chatList} onAddClick={new_chat_ecobots} />
             <div className="row chat-container">
                 <div className="col col-12 col-md-3 d-md-block d-none sidebar-container">
                     <div className="sidebar-top">

@@ -17,6 +17,11 @@
     cursor: pointer;
 }
 
+.chat-item .title {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
 .chat-item .delete {
     position: absolute;
     right: 20px;
