@@ -5,8 +5,6 @@ export const fetchUUID = async (req, res, next) => {
     try {
         const uuid = await ChatService.fetchUUID();
 
-        console.log("uuid: ", uuid);
-  
         res.json({ uuid })
     } catch (err) {
         next(err)
@@ -27,9 +25,13 @@ export const fetchGptMessage = async (req, res, next) => {
 
 export const saveMessage = async (req, res, next) => {
     try {
-        let ret;
+        const device_uuid = req.device_uuid;
+        const { chatid, messages } = req.query;
 
-        res.json({ret})
+        console.log(messages);
+        const ret = await ChatService.saveMessage(device_uuid, chatid, messages);
+
+        res.json(ret)
     } catch (err) {
         next(err)
     }
@@ -40,9 +42,9 @@ export const setMessageRate = async (req, res, next) => {
         const device_uuid = req.device_uuid;
         const { chatid, rate } = req.query;
 
-        console.log(req.query);
+        const ret = await ChatService.setMessageRate(device_uuid, chatid, rate);
 
-        res.json({device_uuid})
+        res.json(ret)
     } catch (err) {
         next(err)
     }

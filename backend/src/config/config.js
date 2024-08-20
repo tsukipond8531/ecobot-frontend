@@ -8,5 +8,6 @@ export default {
     PORT: process.env.PORT || '8080',
     expiresIn: process.env.EXPIRESIN || '24h',
     SENTRY_DSN: process.env.SENTRY_DSN || '',
+    DB_FILE: process.env.DB_FILE || 'db.sqlite',
   }
   

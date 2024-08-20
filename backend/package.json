@@ -28,6 +28,7 @@
     "nodemon": "^3.1.4",
     "openai": "^4.56.0",
     "path": "^0.12.7",
+    "sql.js": "^1.11.0",
     "universal-cookie": "^7.2.0"
   },
   "devDependencies": {
