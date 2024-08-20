@@ -19,6 +19,7 @@ import { uuid } from 'utils/utils';
 
 import './index.css';
 import { CHATSTATE_GENERATING } from 'hooks/contexts/usercontext';
+import { apiSaveMessage } from 'hooks/services/userservice';
 
 var gpt_messages = [
     "Hello, what is something ecological you always wanted to do, but were never able to do?", 
@@ -162,6 +163,11 @@ export default function Chat () {
             list = addMsg("assistant", res.answer);
             saveMsg(chatId, "assistant", res.answer);
             setMsgList(list);
+
+            apiSaveMessage({
+                chatid: chatId,
+                messages: [question, res.answer]
+            }).then();
     
             setTalkList([]);
             setChatState(CHATSTATE_START);
