@@ -21,7 +21,12 @@ export default function RateSelector (props) {
         setRate("like");
     }
 
-    const handleDislike = () => {
+    const handleDislike = async () => {
+        const data = await apiSetRate({
+            chatid,
+            rate: "dislike",
+        });
+
         setRate("dislike");
     }
 
