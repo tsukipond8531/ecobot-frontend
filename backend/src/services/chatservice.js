@@ -17,4 +17,20 @@ export default class ChatService {
             throw err;
         }
     }
+
+    static async saveMessage(device_uuid, chatid, messages) {
+        try {
+
+        } catch(err) {
+            throw err;
+        }
+    }
+
+    static async setRate(device_uuid, chatid, rate) {
+        try {
+
+        } catch(err) {
+            throw err;
+        }
+    }
 }

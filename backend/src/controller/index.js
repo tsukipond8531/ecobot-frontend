@@ -16,9 +16,33 @@ export const fetchUUID = async (req, res, next) => {
 export const fetchGptMessage = async (req, res, next) => {
     try {
         const { mode, question, history } = req.query;
-        const answer = await GptService.fetchGptMessage(mode, question, history);
+        //const answer = await GptService.fetchGptMessage(mode, question, history);
+        const answer = "Hello. GPT Test Answer!!!";
   
         res.json({answer})
+    } catch (err) {
+        next(err)
+    }
+}
+
+export const saveMessage = async (req, res, next) => {
+    try {
+        let ret;
+
+        res.json({ret})
+    } catch (err) {
+        next(err)
+    }
+}
+
+export const setMessageRate = async (req, res, next) => {
+    try {
+        const device_uuid = req.device_uuid;
+        const { chatid, rate } = req.query;
+
+        console.log(req.query);
+
+        res.json({device_uuid})
     } catch (err) {
         next(err)
     }
