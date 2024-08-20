@@ -13,7 +13,7 @@ export default function MsgItem (props) {
     const image = message.role === "user" ? user_image : gpt_image;
 
     return (
-        <div className={`message-item ${message.display === "false" ? "d-none" : ""} ${message.role === "assistant" ? "ecobot" : ""}`}>
+        <div className={`message-item ${message.role === "assistant" ? "ecobot" : ""} ${message.display === "false" ? "d-none" : ""} `}>
             <div className="role">
                 <img src={image} alt="Avatar"></img>
             </div>

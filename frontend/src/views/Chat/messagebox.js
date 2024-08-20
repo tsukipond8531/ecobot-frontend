@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 
 import MsgItem from 'components/MsgItem';
+import RateSelector from './rateselector';
 
 export default function MessageBox (props) {
-    const { items, talks } = props;
+    const { chatId, items, talks, showRate } = props;
     const chatBoxRef = useRef(null);
 
     // Scroll to bottom whenever items or talks are updated
@@ -22,6 +23,7 @@ export default function MessageBox (props) {
             {talks?.length > 0 && talks.map((it, idx) => (
                 <MsgItem message={it} key={idx} />
             ))}
+            <RateSelector chatid={chatId} messages={items} show={showRate}/>
         </div>
     )
 }

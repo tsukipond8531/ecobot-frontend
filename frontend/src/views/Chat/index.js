@@ -47,6 +47,7 @@ export default function Chat () {
     } = useContext(UserContext);
 
     const [reqMessage, setReqMessage] = useState("");
+    const [showRate, setShowRate] = useState(false);
 
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
@@ -103,6 +104,7 @@ export default function Chat () {
         loadChatList();
         
         setMsgList([]);
+        setShowRate(false);
     }
 
     async function new_chat_guided () {
@@ -120,17 +122,24 @@ export default function Chat () {
         msg = gpt_messages[Math.floor(Math.random() * gpt_messages.length)];
         list.push({role: "assistant", content: msg, display: "true"});
         setMsgList(list);
-
+        setShowRate(false);
     }
 
     async function handleQuestionSubmit(question) {
         if (chatId === "" || question === "")
             return;
+        
+        setShowRate(false);
+        setChatState(CHATSTATE_GENERATING);
 
         let history = getHistory();
 
         let list = [];
+        await sleep(200);
         list.push({role: "user", content: question, display: "true"});
+        setTalkList(list);
+
+        await sleep(200);
         list.push({role: "assistant", content: "", display: "loading"});
         setTalkList(list);
 
@@ -143,8 +152,7 @@ export default function Chat () {
             history
         })
 
-        setChatState(CHATSTATE_GENERATING);
-
+        await sleep(200);
         req.then(res => {
 
             list = addMsg("user", question);
@@ -157,6 +165,7 @@ export default function Chat () {
     
             setTalkList([]);
             setChatState(CHATSTATE_START);
+            setShowRate(true);
         });
     }
 
@@ -178,7 +187,7 @@ export default function Chat () {
                     <div className="h-100">
                         <StopGenerating />
                         <ModeSelector />
-                        <MessageBox items={msgList} talks={talkList} />
+                        <MessageBox chatId={chatId} items={msgList} talks={talkList} showRate={showRate}/>
                         <UserInput onSubmit={handleQuestionSubmit} onGuidedStart={new_chat_guided} />
                     </div>
                 </div>

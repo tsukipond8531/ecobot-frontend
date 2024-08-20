@@ -212,3 +212,11 @@ textarea:placeholder-shown {
 .chat-navbar .offcanvas-body {
     background-color: green;
 }
+
+.rate-section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    gap: 5px;
+}
