@@ -68,3 +68,14 @@
     content: "";
     animation: loadingDots 2s infinite;
 }
+
+.message-item:last-child {
+    animation: 0.6s show_message;
+}
+
+@keyframes show_message {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+}
