@@ -17,7 +17,10 @@
     "@dfinity/candid": "^1.2.0",
     "@dfinity/principal": "^1.2.0",
     "react-router-dom": "^6.26.1",
-    "universal-cookie": "^7.2.0"
+    "universal-cookie": "^7.2.0",
+    "history": "^5.3.0",
+    "react-toastify": "^10.0.5",
+    "axios": "^1.7.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.73",

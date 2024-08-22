@@ -1,6 +1,8 @@
 import React, { useState, useEffect, createContext, ReactNode } from 'react';
 import Cookies from 'universal-cookie';
 
+import { apiFetchUUID } from '../services/userservice';
+
 // Define types for the context
 interface UserContextType {
     chatMode: string;
@@ -62,7 +64,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
             const cookies = new Cookies(null, { path: '/' });
 
             if (!cookies.get("device_uuid")) {
-                const data = {uuid: "Test uuid"};//await apiFetchUUID();
+                const data = await apiFetchUUID();
                 cookies.set("device_uuid", data.uuid);
             }
         };
