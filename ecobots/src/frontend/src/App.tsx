@@ -1,29 +1,32 @@
-import { useState } from 'react';
+import React from 'react';
+import { RouterProvider, createBrowserRouter} from 'react-router-dom';
+
+import Home from './views/Home';
+import About from './views/About';
+
+import './App.css';
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  const [greeting, setGreeting] = useState('');
-
-  function handleSubmit(event: any) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    fetch(`${import.meta.env.VITE_CANISTER_URL}/greet?name=${name}`)
-      .then(response => response.json()).then((json) => {
-        setGreeting(json.greeting)
-      });
-  }
-
   return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-    </main >
+    <RouterProvider router={router} />
   );
 }
 

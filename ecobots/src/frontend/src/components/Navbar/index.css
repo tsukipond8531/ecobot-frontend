@@ -1,0 +1,7 @@
+.navbar {
+    font-weight: 500;
+}
+
+.offcanvas.show li {
+    border-bottom: 1px solid gray;
+}

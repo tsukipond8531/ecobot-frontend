@@ -15,5 +15,7 @@
     "workspaces": [
         "src/backend",
         "src/frontend"
-    ]
+    ],
+    "dependencies": {
+    }
 }

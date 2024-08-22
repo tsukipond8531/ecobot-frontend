@@ -15,7 +15,9 @@
     "react-dom": "^18.2.0",
     "@dfinity/agent": "^1.2.0",
     "@dfinity/candid": "^1.2.0",
-    "@dfinity/principal": "^1.2.0"
+    "@dfinity/principal": "^1.2.0",
+    "react-router-dom": "^6.26.1",
+    "universal-cookie": "^7.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.73",
