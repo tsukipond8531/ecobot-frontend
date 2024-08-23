@@ -1,5 +1,14 @@
 {
     "canisters": {
+        "frontend" : {
+            "type": "assets",
+            "source": [
+                "src/frontend/dist"
+            ],
+            "build_assets": "npm run build",
+            "gzip": true
+
+        },
         "backend": {
             "type": "custom",
             "main": "src/backend/backend.ts",
@@ -7,13 +16,6 @@
             "build": "npx azle backend",
             "wasm": ".azle/backend/backend.wasm",
             "gzip": true,
-            "assets": [
-                [
-                    "src/frontend/dist",
-                    "dist"
-                ]
-            ],
-            "build_assets": "npm run build",
             "metadata": [
                 {
                     "name": "candid:service",
