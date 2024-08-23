@@ -1,5 +1,6 @@
 import { fileURLToPath, URL } from 'url';
 import react from '@vitejs/plugin-react';
+import rewriteAll from 'vite-plugin-rewrite-all';
 import { defineConfig } from 'vite';
 import environment from 'vite-plugin-environment';
 import dotenv from 'dotenv';
@@ -27,6 +28,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
+    rewriteAll(),
     environment("all", { prefix: "CANISTER_" }),
     environment("all", { prefix: "DFX_" }),
   ],
