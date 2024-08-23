@@ -22,7 +22,8 @@
     "react-toastify": "^10.0.5",
     "axios": "^1.7.4",
     "markdown-it": "^14.1.0",
-    "@types/markdown-it": "^14.1.2"
+    "@types/markdown-it": "^14.1.2",
+    "bootstrap": "^5.3.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.73",
