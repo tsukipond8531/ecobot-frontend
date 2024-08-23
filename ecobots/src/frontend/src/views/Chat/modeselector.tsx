@@ -1,5 +1,7 @@
 import React, { useRef, useEffect, useContext } from 'react';
-import UserContext, { CHATMODE_ECOBOTS, CHATMODE_GUIDED, CHATMODE_STANDARD, CHATSTATE_INIT } from '../../hooks/contexts/usercontext';
+import UserContext from '../../hooks/contexts/usercontext';
+import { CHATMODE_ECOBOTS, CHATMODE_GUIDED, CHATMODE_STANDARD } from '../../hooks/contexts/usercontext';
+import { CHATSTATE_INIT } from '../../hooks/contexts/usercontext';
 
 const ModeSelector: React.FC = () => {
     const context = useContext(UserContext);

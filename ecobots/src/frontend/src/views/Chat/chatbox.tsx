@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import ChatItem from '../../components/ChatItem';
 
-import UserContext, { CHATSTATE_START, CHATSTATE_INIT } from '../../hooks/contexts/usercontext';
+import UserContext from '../../hooks/contexts/usercontext';
+import { CHATSTATE_START, CHATSTATE_INIT } from '../../hooks/contexts/usercontext';
 import { uuid } from '../../utils/utils';
 
 interface Chat {

@@ -3,6 +3,8 @@ import Cookies from 'universal-cookie';
 
 import { apiFetchUUID } from '../services/userservice';
 
+import { Message } from '../../types';
+
 // Define types for the context
 interface UserContextType {
     chatMode: string;
@@ -17,24 +19,18 @@ interface UserContextType {
     getChat: (chatId: string) => Promise<ChatItem | null>;
     deleteChat: (chatId: string) => void;
     loadChatList: () => void;
-    msgList: MsgItem[];
-    setMsgList: React.Dispatch<React.SetStateAction<MsgItem[]>>;
-    saveMsg: (chatId: string, role: string, content: string, display?: string) => void;
-    talkList: string[];
-    setTalkList: React.Dispatch<React.SetStateAction<string[]>>;
+    msgList: Message[];
+    setMsgList: React.Dispatch<React.SetStateAction<Message[]>>;
+    saveMsg: (chatId: string, role: 'user' | 'assistant', content: string, display?: 'true' | 'false') => Promise<void>;
+    talkList: Message[];
+    setTalkList: React.Dispatch<React.SetStateAction<Message[]>>;
 }
 
 interface ChatItem {
     id: string;
     mode: string;
     title: string;
-    items: MsgItem[];
-}
-
-interface MsgItem {
-    role: string;
-    content: string;
-    display: string;
+    items: Message[];
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -56,8 +52,8 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [chatState, setChatState] = useState<string>("");
     const [chatId, setChatId] = useState<string>("");
     const [chatList, setChatList] = useState<ChatItem[]>([]);
-    const [msgList, setMsgList] = useState<MsgItem[]>([]);
-    const [talkList, setTalkList] = useState<string[]>([]);
+    const [msgList, setMsgList] = useState<Message[]>([]);
+    const [talkList, setTalkList] = useState<Message[]>([]);
 
     useEffect(() => {
         const setDeviceUUID = async () => {
@@ -111,12 +107,12 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         localStorage.removeItem(key);
     };
 
-    const saveMsg = async (chatId: string, role: string, content: string, display: string = "true") => {
+    const saveMsg = async (chatId: string, role: 'user' | 'assistant', content: string, display: 'true' | 'false' = "true") => {
         let key = `chat:${chatId}`;
         let chat = JSON.parse(localStorage.getItem(key)!) as ChatItem;
-
+    
         chat.items.push({ role, content, display });
-
+    
         localStorage.setItem(key, JSON.stringify(chat));
     };
 
