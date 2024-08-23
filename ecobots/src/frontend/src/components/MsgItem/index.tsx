@@ -2,16 +2,12 @@ import React from 'react';
 import MarkdownIt from 'markdown-it';
 import './index.css';
 
+import { Message } from '../../types';
+
 const user_image = "/assets/chats/user.png";
 const gpt_image = "/assets/chats/ecobot.png";
 
 const md = new MarkdownIt();
-
-interface Message {
-    role: "user" | "assistant";
-    content: string;
-    display: "true" | "false" | "loading";
-}
 
 interface MsgItemProps {
     message: Message;
