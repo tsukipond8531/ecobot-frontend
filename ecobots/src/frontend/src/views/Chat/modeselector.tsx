@@ -7,7 +7,7 @@ const ModeSelector: React.FC = () => {
     const context = useContext(UserContext);
 
     if (!context) {
-        throw new Error('MyComponent must be used within an AppProvider');
+        throw new Error('ModeSelector must be used within an AppProvider');
     }
     
     const { 
@@ -15,7 +15,7 @@ const ModeSelector: React.FC = () => {
         setChatMode, 
         chatState, 
         setChatState 
-    } = context
+    } = context;
 
     const modeEcobotsRef = useRef<HTMLButtonElement>(null);
     const modeGuidedRef = useRef<HTMLButtonElement>(null);
@@ -31,35 +31,29 @@ const ModeSelector: React.FC = () => {
     };
 
     useEffect(() => {
-        if (modeEcobotsRef.current) {
-            window.bootstrap.Popover(modeEcobotsRef.current, {
-                title: "Our most accurate model teaching you about local and global ecology.",
-                content: "Available to all users for free.",
-                trigger: "focus",
-                placement: "bottom",
-                customClass: "custom-popover",
-            });
-        }
+        new (window as any).bootstrap.Popover(modeEcobotsRef.current, {
+            title: "Our most accurate model teaching you about local and global ecology.",
+            content: "Available to all users for free.",
+            trigger: "focus",
+            placement: "bottom",
+            customClass: "custom-popover",
+        });
 
-        if (modeGuidedRef.current) {
-            window.bootstrap.Popover(modeGuidedRef.current, {
-                title: "Use our Standard model will ask you questions about ecology and sustainability.",
-                content: "Available to all users for free.",
-                trigger: "focus",
-                placement: "bottom",
-                customClass: "custom-popover",
-            });
-        }
+        new (window as any).bootstrap.Popover(modeGuidedRef.current, {
+            title: "Use our Standard model will ask you questions about ecology and sustainability.",
+            content: "Available to all users for free.",
+            trigger: "focus",
+            placement: "bottom",
+            customClass: "custom-popover",
+        });
 
-        if (modeStandardRef.current) {
-            window.bootstrap.Popover(modeStandardRef.current, {
-                title: "Standard model assisting you with everyday inquiries.",
-                content: "Available to all users for free.",
-                trigger: "focus",
-                placement: "bottom",
-                customClass: "custom-popover",
-            });
-        }
+        new (window as any).bootstrap.Popover(modeStandardRef.current, {
+            title: "Standard model assisting you with everyday inquiries.",
+            content: "Available to all users for free.",
+            trigger: "focus",
+            placement: "bottom",
+            customClass: "custom-popover",
+        });
     }, []);
 
     return (
