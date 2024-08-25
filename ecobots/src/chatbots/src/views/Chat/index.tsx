@@ -109,13 +109,6 @@ export default function Chat() {
         handleQuestionSubmit(reqMessage);
     }, [reqMessage]);
 
-    function addMsg(role: 'user' | 'assistant', content: string, display: 'true' | 'false' = 'true'): Message[] {
-        let list = [...msgList];
-        let message: Message = { role, content, display };
-        list.push(message);
-        return list;
-    }
-
     function getHistory(): string {
         let history: [string, string][] = [];
         msgList.forEach(e => {
@@ -182,11 +175,16 @@ export default function Chat() {
 
         await sleep(200);
         req.then(res => {
-            list = addMsg("user", question);
+            list = msgList;
+
+            let message: Message;
+            message = { role: "user", content: question, display: "true" };
+            list.push(message);
             saveMsg(chatId, "user", question);
             setMsgList(list);
     
-            list = addMsg("assistant", res.answer);
+            message = { role: "assistant", content: res.answer, display: "true" };
+            list.push(message);
             saveMsg(chatId, "assistant", res.answer);
             setMsgList(list);
 
