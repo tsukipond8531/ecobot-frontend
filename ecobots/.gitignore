@@ -20,7 +20,8 @@ target/
 
 # frontend code
 node_modules/
-src/frontend/dist/
+src/chatbots/dist
+src/ecobots/dist
 
 # environment variables
 .env

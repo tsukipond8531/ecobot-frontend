@@ -1,13 +1,12 @@
 {
     "canisters": {
-        "frontend" : {
+        "ecobots" : {
             "type": "assets",
             "source": [
-                "src/frontend/dist"
+                "src/ecobots/dist"
             ],
             "build_assets": "npm run build",
             "gzip": true
-
         },
         "backend": {
             "type": "custom",
@@ -16,6 +15,13 @@
             "build": "npx azle backend",
             "wasm": ".azle/backend/backend.wasm",
             "gzip": true,
+            "assets": [
+                [
+                    "src/chatbots/dist",
+                    "dist"
+                ]
+            ],
+            "build_assets": "npm run build",
             "metadata": [
                 {
                     "name": "candid:service",
