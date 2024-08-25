@@ -50,7 +50,6 @@ const api = async <T = any>({
       headers,
       params: query,
       ...(method !== 'GET' && { data }),
-//      withCredentials: true,  // Ensure that credentials like cookies are sent with the request
     };
 
     const res = await axiosInstance(config);
