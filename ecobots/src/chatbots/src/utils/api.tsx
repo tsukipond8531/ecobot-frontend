@@ -6,7 +6,10 @@ const API_URL = import.meta.env.VITE_CANISTER_URL;
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
-  withCredentials: true,
+  withCredentials: true,  // This ensures cookies are sent with the request
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 // Define the type for the API function parameters
@@ -32,9 +35,7 @@ const api = async <T = any>({
   query = {},
 }: ApiParams): Promise<ApiResponse<T> | {}> => {
   try {
-    let headers: Record<string, string> = {
-      'Content-Type': 'application/json',
-    };
+    let headers: Record<string, string> = {};
 
     if (auth) {
       const token = localStorage.getItem('token');
@@ -49,6 +50,7 @@ const api = async <T = any>({
       headers,
       params: query,
       ...(method !== 'GET' && { data }),
+//      withCredentials: true,  // Ensure that credentials like cookies are sent with the request
     };
 
     const res = await axiosInstance(config);

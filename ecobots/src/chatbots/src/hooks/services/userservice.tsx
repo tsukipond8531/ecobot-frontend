@@ -8,7 +8,7 @@ interface QueryParams {
 // Function to fetch UUID
 export const apiFetchUUID = async (): Promise<any> => {
   const data = await api({
-    url: `/uuid`,
+    url: `/chat/uuid`,
   });
 
   return data;
@@ -17,7 +17,7 @@ export const apiFetchUUID = async (): Promise<any> => {
 // Function to get GPT response
 export const apiGetGpt = async (query: QueryParams): Promise<any> => {
   const data = await api({
-    url: `/gpt_message`,
+    url: `/chat/gpt_message`,
     query,
     method: "POST"
   });

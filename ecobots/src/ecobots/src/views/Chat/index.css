@@ -1,0 +1,222 @@
+.chat-container {
+    height: 100vh;
+}
+
+.sidebar-container {
+    background: #177f4e;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+}
+
+.sidebar-top {
+    padding: 25px;
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+}
+
+.chat-tool-container {
+    display: block;
+    transform: translateX(0px);
+    transition: .1s ease-out;
+    background: white;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.message-box-container {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.stop-generating {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    top: calc(100dvh - 130px);
+    z-index: 1000000;
+}
+
+#cancelButton {
+    background: white;
+    width: auto;
+    font-size: 12px;
+    line-height: 22px;
+    padding: 5px 10px;
+    color: #333;
+}
+
+.message-box {
+    height: calc(100% - 100px);
+    overflow-y: scroll;
+}
+
+#placeholder_img {
+    filter: brightness(0.95);
+    width: 50%;
+    transform: scale(1);
+    top: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+    bottom: 0;
+    z-index: -100000;
+}
+        
+.user-input {
+    height: 50px;
+    padding: 0 25px;
+    margin-top: 25px;
+    transition: .1s ease-out;
+}
+
+.user-input #send-button {
+    margin: auto;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 0.25rem;
+    transition: .1s ease-out;
+
+}
+
+.user-input .guided-start {
+    background-color: #187f4e;
+    color: white;
+    border: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    margin: auto;
+    border-radius: 0.25rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.input-box {
+    display: flex;
+    height: 100%;
+    justify-content: space-evenly;
+    padding: 10px 10px;
+    border-radius: .25rem;
+    box-shadow: 0px 0px 10px 1px #d7d4d4;
+}
+
+#message-input {
+    white-space: pre-wrap;
+    height: 30px;
+    max-height: 191px;
+    width: 100%;
+    resize: none;
+    background: none;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 4px;
+}
+
+textarea::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+    line-height: 20px;
+}
+
+textarea:placeholder-shown {
+  border-color: black;
+}
+
+.mode-selector-container {
+    background: #187f4e;
+    height: 50px;
+    border-radius: 0.25rem;
+    width: 40%;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 25px;
+}
+
+.mode-selector {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+.mode-button {
+    width: 32%;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.mode-button.active {
+    color: green;
+    background-color: white;
+}
+
+.custom-popover {
+    --bs-popover-max-width: 400px;
+    --bs-popover-border-color: var(--bs-green);
+    --bs-popover-header-bg: var(--bs-white);
+    --bs-popover-header-color: var(--bs-black);
+    --bs-popover-body-padding-x: 1rem;
+    --bs-popover-body-padding-y: .5rem;
+    --bs-popover-arrow-width: 0px;
+    --bs-popover-arrow-height: 0px;
+}
+
+.custom-popover > .popover-header {
+    border-bottom: 0px;
+}
+
+@media (max-width: 767px) {
+    .sidebar-container {
+        border-top: 1px solid white;
+        height: calc(100% - 50px);
+        top: 50px;
+        position: absolute;
+    }
+
+    .chat-tool-container {
+        display: none;
+    }
+
+    .message-box {
+        height: calc(100% - 160px);
+        min-height: calc(100% - 311px);
+    }
+}
+
+.chat-navbar .navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.chat-navbar .navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.chat-navbar .offcanvas {
+    display: block;
+}
+
+.chat-navbar .offcanvas-body {
+    background-color: green;
+}
+
+.rate-section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    gap: 5px;
+}
