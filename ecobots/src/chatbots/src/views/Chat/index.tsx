@@ -215,7 +215,6 @@ export default function Chat() {
                 </div>
                 <div className="col col-12 col-md-9 message-box-container">
                     <div className="h-100">
-                        <StopGenerating />
                         <ModeSelector />
                         <MessageBox chatId={chatId} items={msgList} talks={talkList} showRate={showRate} />
                         <UserInput onSubmit={handleQuestionSubmit} onGuidedStart={new_chat_guided} />
