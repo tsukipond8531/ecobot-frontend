@@ -28,7 +28,7 @@ export const apiGetGpt = async (query: QueryParams): Promise<any> => {
 // Function to save message
 export const apiSaveMessage = async (query: QueryParams): Promise<any> => {
   const data = await api({
-    url: `/save_message`,
+    url: `/chat/save_message`,
     query,
     method: "POST"
   });
@@ -39,7 +39,7 @@ export const apiSaveMessage = async (query: QueryParams): Promise<any> => {
 // Function to set message rate
 export const apiSetRate = async (query: QueryParams): Promise<any> => {
   const data = await api({
-    url: `/set_message_rate`,
+    url: `/chat/set_message_rate`,
     query,
     method: "POST"
   });
