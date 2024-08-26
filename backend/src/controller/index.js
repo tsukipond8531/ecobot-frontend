@@ -28,7 +28,6 @@ export const saveMessage = async (req, res, next) => {
         const device_uuid = req.device_uuid;
         const { chatid, messages } = req.query;
 
-        console.log(messages);
         const ret = await ChatService.saveMessage(device_uuid, chatid, messages);
 
         res.json(ret)
