@@ -7,16 +7,15 @@ export default class ChatService {
         messages: string[]
     ): Promise<{ success: boolean; message: string }> {
         try {
-            
             const query =
                 "INSERT INTO messages (user_id, device_uuid, chat_id, role, content, created_at) VALUES (?, ?, ?, ?, ?, ?)";
-            let epochTimeSeconds = Math.floor(Date.now());
 
-            // Save the user's message
+                // Save the user's message
+            let epochTimeSeconds = Math.floor(Date.now() / 1000);
             runQuery(query, ["", device_uuid, chatid, "user", messages[0], epochTimeSeconds]);
 
             // Save the assistant's response
-            epochTimeSeconds = Math.floor(Date.now());
+            epochTimeSeconds = Math.floor(Date.now() / 1000);
             runQuery(query, ["", device_uuid, chatid, "assistant", messages[1], epochTimeSeconds]);
 
             return { success: true, message: "Saving succeeded" };

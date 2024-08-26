@@ -6,7 +6,7 @@ export const migration0 = `
         age INTEGER NOT NULL
     );
 
-    CREATE TABLE posts
+    CREATE TABLE messages
     (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         user_id INTEGER NOT NULL,

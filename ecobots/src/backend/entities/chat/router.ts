@@ -4,6 +4,7 @@ import { getGptMessage } from './gptservice';
 import ChatService from './chatservice';
 
 import { AuthenticatedRequest } from '../../types';
+import auth from '../../middlewares/auth';
 
 export function getRouter(): Router {
     const router = express.Router();
@@ -32,7 +33,7 @@ export function getRouter(): Router {
         }
     });
 
-    router.post('/save_message',  async (req: AuthenticatedRequest, res) => {
+    router.post('/save_message', auth(), async (req: AuthenticatedRequest, res) => {
         const device_uuid = req.device_uuid as string;
         const chatid = req.query.chatid as string;
         const messages = req.query.messages as string[];
@@ -50,7 +51,7 @@ export function getRouter(): Router {
         }
     });
 
-    router.post('/set_message_rate', async (req: AuthenticatedRequest, res) => {
+    router.post('/set_message_rate', auth(), async (req: AuthenticatedRequest, res) => {
         const device_uuid = req.device_uuid as string;
         const chatid = req.query.chatid as string;
         const rate = req.query.rate as string;

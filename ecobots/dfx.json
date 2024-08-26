@@ -19,6 +19,10 @@
                 [
                     "src/chatbots/dist",
                     "dist"
+                ],
+                [
+                    "src/backend/db.sqlite",
+                    "db.sqlite"
                 ]
             ],
             "build_assets": "npm run build",
