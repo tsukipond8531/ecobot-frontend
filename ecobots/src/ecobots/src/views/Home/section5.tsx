@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { CHATBOT_URL } from '../../App';
+
 export default function Section5 () {
     return(
         <section className="my-5">
@@ -8,7 +10,7 @@ export default function Section5 () {
                     <div className="col col-12 col-lg-6 my-5">
                         <h3 className="u-text-p2 mb-5">Funding thanks to EcoBots</h3>
                         <p className="u-text-base mb-4">EcoBots is featuring options for NGOs, companies, and also individuals who want to benefit the environment. Explain your project to EcoBots, and see what funding opportunities are available to you!</p>
-                        <a href="/chat" className="btn btn-success btn-lg mx-1" data-controller="track" data-track-category="Signup" data-track-action="Signup Redirect" data-action="track#send">Try it now</a>
+                        <a href={CHATBOT_URL} className="btn btn-success btn-lg mx-1" data-controller="track" data-track-category="Signup" data-track-action="Signup Redirect" data-action="track#send">Try it now</a>
                     </div>
                     <div className="col col-12 col-lg-6">
                         <div className="c-faq__entry bg-white rounded-3 shadow-sm u-hover-lift mb-2">

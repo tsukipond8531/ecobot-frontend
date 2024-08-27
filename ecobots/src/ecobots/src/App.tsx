@@ -8,6 +8,7 @@ import Tos from './views/Tos';
 
 import './App.css';
 
+export const CHATBOT_URL = import.meta.env.VITE_CANISTER_URL;
 
 function App() {
   return (

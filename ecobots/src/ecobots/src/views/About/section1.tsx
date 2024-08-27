@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
 
+import { CHATBOT_URL } from '../../App';
+
 export default function Section1 () {
     const [message, setMessage] = useState("");
 
     const handleSendClick = () => {
-        const encodedMessage = encodeURIComponent(message);
-        window.location.href = `/chat?message=${encodedMessage}`;
+        if (message != "") {
+            const encodedMessage = encodeURIComponent(message);
+            window.location.href = `${CHATBOT_URL}/?message=${encodedMessage}`;
+        }
     };
 
     const handleKeyDown = (evt: any) => {
         if (evt.key === 'Enter' && !evt.shiftKey) {
             evt.preventDefault();
-            const encodedMessage = encodeURIComponent(message);
-            window.location.href = `/chat?message=${encodedMessage}`;
+            if (message != "") {
+                const encodedMessage = encodeURIComponent(message);
+                window.location.href = `${CHATBOT_URL}/?message=${encodedMessage}`;
+            }
         }
     };
 

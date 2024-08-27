@@ -2,6 +2,8 @@ import React from 'react';
 
 import './index.css';
 
+import { CHATBOT_URL } from '../../App';
+
 export default function Navbar () {
     return (
         <nav className="navbar sticky-top navbar-expand-lg bg-white border-bottom">
@@ -10,7 +12,7 @@ export default function Navbar () {
                     <img src="/assets/logos/logo_225_color.png" alt="EcoBots logo" style={{width: 70, height: 70}} />
                 </a>
                 <div className="d-flex order-2 order-lg-2">
-                    <a className="btn btn-outline-success fw-semibold" href="/chat/">Try it now</a>
+                    <a className="btn btn-outline-success fw-semibold" href={`${CHATBOT_URL}`}>Try it now</a>
                 </div>
                 <button className="navbar-toggler order-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon me-1"></span>Menu
