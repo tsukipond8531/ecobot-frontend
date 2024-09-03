@@ -15,7 +15,7 @@ export default class GptService {
     }
 
     static async makeChatGPTRequest(payload) {
-        const apiKey = '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';
+        const apiKey = '';
 
         const openai = new OpenAI({
             apiKey: apiKey
